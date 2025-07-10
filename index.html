@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <title>Página da Play Store</title>
+</head>
+
+<body>
+    <header class="app-header">
+        <div class="app-info">
+
+            <img src="/img/chile-casino.webp" alt="logo do app casino" class="app-logo">
+
+            <div class="app-details">
+                <h1><span>Sweet Slots </span></h1>
+                <div class="app-subtitle">
+                    <div class="subtitle"><a><span>Chile Casino</span></a></div>
+                    <div class="subtitle-info">
+                        <div><span>Contiene anuncios · Compras en aplicações</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="app-rating">
+            <div class="container-app-rating">
+                <div id="rating-1">
+                    <span class="header-rating">4.8<span class="material-icons"
+                            style="color:#FFD600; font-size:1.1em; margin-left:4px;">star</span></span>
+                    <span class="body-rating">20 mil</span>
+                </div>
+                <div id="rating-2">
+                    <span class="header-rating">1 M+</span>
+                    <span class="body-rating">Downloads</span>
+                </div>
+                <div id="rating-3">
+                    <span class="header-rating"><span class="material-symbols-outlined">
+                            workspace_premium
+                        </span></span>
+                    <span class="body-rating">Seleção dos nossos especialistas</span>
+                </div>
+                <div id="rating-4">
+                    <span class="header-rating">18</span>
+                    <span class="body-rating">Para maiores de 18 anos <span class="material-icons"
+                            style="color:#5f6368; font-size:1em; margin-left:4px;">info</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="download-app">
+            <button>
+                Instalar Agora
+            </button>
+            <button class="install">
+                Baixar
+            </button>
+            <script>
+                const installApp = document.querySelector('.install')
+
+                installApp.addEventListener('click', () => {
+                    installApp.innerHTML = `
+					<span>Baixando</span>
+					<div class="loading-container">
+                        <div class="loading-circle"></div>
+                        <div class="loading-progress-1"></div>
+                        <div class="loading-progress-2"></div>
+                        <div class="loading-progress-3"></div>
+                        <div class="loading-progress-4"></div>
+                        <div class="loading-progress-5"></div>
+					</div>
+                    `
+                    setTimeout(() => {
+                        installApp.style.display = 'none'
+                    }, 10000);
+                })
+            </script>
+            <div class="add-wishlist">
+                <span class="header_btnContentAddFavBtn_icon__80TSv" aria-hidden="true"><svg width="24" height="24"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M7 3H17C18.1045 3 19 3.8955 19 5V21L12 18L5 21L5.01075 5C5.01075 3.8955 5.8965 3 7 3ZM12 15.824L17 18V5H7V18L12 15.824ZM13 7V9H15V11H13V13H11V11H9V9H11V7H13Z">
+                        </path>
+                    </svg></span>
+                <span class="add-wishlist-text">Adicionar à lista de desejos</span>
+            </div>
+            <div class="app-available">
+                <span class="material-symbols-outlined">
+                    devices
+                </span>
+                <span>Este app está disponível para todos os seus dispositivos</span>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="slider-app-images">
+
+            <div class="slider-container">
+
+            </div>
+        </section>
+        <script>
+            const screnshotsContent = [
+                '/img/img-1.webp',
+                'https://www.youtube.com/embed/eolqmrtdJHw',
+                '/img/img-3.webp',
+                'https://www.youtube.com/embed/eolqmrtdJHw',
+                'https://www.youtube.com/embed/eolqmrtdJHw'
+            ]
+
+            const sliderContent = document.querySelector('.slider-container')
+
+            screnshotsContent.forEach((e) => {
+                if (e.includes('.png') || e.includes('.webp') || e.includes('.jpg')) {
+                    sliderContent.innerHTML += `
+                    <div class="slider-item">
+                        <img src="${e}" width="100%" height="100%" alt="Imagem do app Chile Casino">
+                    </div>`
+                } else {
+                    sliderContent.innerHTML += `
+                    <div class="slider-item">
+                    <iframe src="${e}" height="100%" width="100%" aspect-ratio="9/16" allowfullscreen allow="encrypted-media" frameborder="0"></iframe>
+                    </div>
+                    `
+                }
+            })
+        </script>
+        <section class="app-description">
+
+            <div class="description-header">
+                <h2>Sobre o app</h2>
+                <button>
+                    <span class="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                </button>
+            </div>
+
+            <div class="text-description">
+                <p>🎰 Reivindique seu bônus no Sweet Slots e ganhe muito! 🎰</p>
+                <p>💰 O bônus do primeiro depósito pode ser reembolsado.</p>
+                <p>🎉 Novos usuários recebem 10.000 CLP GRÁTIS no PLINKO. Aproveite esta oportunidade! 🚀</p>
+                <p>📲 Baixe o aplicativo oficial e ganhe um presente adicional de 2.000 CLP. 🎁</p>
+                <p>💸 A chuva de envelopes vermelhos distribui 1.000.000 CLP diariamente, e em feriados o bônus dobra
+                    para 3.000.000 CLP! 🎊</p>
+            </div>
+
+            <div class="app-updates">
+                <h3>Última atualização</h3>
+                <p>4 de julho 2024</p>
+            </div>
+
+        </section>
+        <section class="securite-data">
+
+            <div class="info-securite">
+                <h2>Segurança dos dados</h2>
+                <button>
+                    <span class="material-symbols-outlined">
+                        arrow_right_alt
+                    </span>
+                </button>
+            </div>
+
+            <div class="text-securite">
+                <p>Nesta seção, os desenvolvedores podem especificar como os aplicativos coletam e usam dados.</p>
+            </div>
+
+            <div class="data-sharing">
+                <div class="data-sharing-item">
+                    <img src="img/share.webp" alt="nenhum dado compartilhado">
+                    <div class="data-sharing-text">
+                        <span>Nenhum dado é compartilhado com terceiros</span>
+                        <span class="more-details">Saiba mais sobre como os desenvolvedores declaram o que
+                            compartilham</span>
+                    </div>
+                </div>
+                <div class="data-sharing-item">
+                    <img src="img/upload.webp" alt="nenhum dado coletado">
+                    <div class="data-sharing-text">
+                        <span>Nenhum dado é coletado</span>
+                        <span class="more-details">Saiba mais sobre como os desenvolvedores relatam o que
+                            coletam.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="app-reviews">
+            <div class="reviews-header">
+                <h2>Avaliações e Comentários</h2>
+                <div class="reviews-header-rating-downloads">
+                    <div class="reviews-header-rating">
+                        <span class="classification-note"></span>
+                        <span class="classification-stars">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </span>
+                        <span class="classification-text"></span>
+                    </div>
+                    <div class="reviews-header-downloads">
+                        <div>
+                            <span>5</span>
+                            <div id="review-rating-5" class="review-rating">
+                                <span style="width: 75%;"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span id="ratin">4</span>
+                            <div id="review-rating-4" class="review-rating">
+                                <span style="width: 12%;"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>3</span>
+                            <div id="review-rating-3" class="review-rating">
+                                <span style="width: 1%;"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>2</span>
+                            <div id="review-rating-2" class="review-rating">
+                                <span style="width: 8%;"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <span>1</span>
+                            <div id="review-rating-1" class="review-rating">
+                                <span style="width: 1%;"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="coments">
+            <div class="coment">
+                <div class="profile">
+                    <img src="img/foto-perfil.jpg" alt="foto de perfil">
+                    <span>Fulado de tal</span>
+                </div>
+
+                <div>
+                    <div>
+                        <span class="user-review-stars">
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                            <span class="material-icons">star</span>
+                        </span>
+                        <span class="user-review-date">
+                            19 de janeiro de 2025
+                        </span>
+                    </div>
+                    <p class="coment-user">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde similique
+                        ducimus asperiores corporis natus dolores! Adipisci atque, officia quasi eaque veniam aut
+                        praesentium magnam quo distinctio ex, omnis nobis in!</p>
+
+                    <span class="review-coment-user">
+                        Essa avaliação foi marcada como útil por 2.130 pessoas
+                    </span>
+                    <div class="ask-helpfull-coment">
+                        <span>Você achou isso útil?</span>
+                        <div>
+                            <button>Sim</button>
+                            <button>Não</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="display-modal" style="display: none;">
+            <div class="show-modal">
+                <button><span class="material-symbols-outlined">
+                        chevron_left
+                    </span></button>
+                <div class="view-modal">
+                    <iframe src="https://www.youtube.com/embed/eolqmrtdJHw" height="100%" width="100%"
+                        frameborder="0"></iframe>
+                </div>
+                <button><span class="material-symbols-outlined">
+                        chevron_right
+                    </span></button>
+            </div>
+        </section>
+        <section class="load-screen">
+            <svg viewBox="25 25 50 50" id="crawling">
+                <circle r="20" cy="50" cx="50"></circle>
+            </svg>
+        </section>
+        <script>
+            const loadScreen = document.querySelector('.load-screen')
+            setTimeout(() => {
+                loadScreen.style.display = 'none'
+                console.log('pronto...')
+            }, 1000);
+        </script>
+    </main>
+    <footer>
+        <div class="info-securite">
+            <h2>Mais apps</h2>
+            <button>
+                <span class="material-symbols-outlined">
+                    arrow_right_alt
+                </span>
+            </button>
+        </div>
+        <div class="container-footer">
+            <div class="more-apps">
+                <img src="img/whatsapp.png">
+                <div>
+                    <span class="more-apps-name">WhatsApp</span>
+                    <span class="more-apps-subname">WhatsApp</span>
+                    <span class="more-apps-rating">4.5<span class="material-icons">star</span></span>
+                </div>
+            </div>
+
+            <div class="more-apps">
+                <img src="img/instagram.png">
+                <div>
+                    <span class="more-apps-name">Instragram</span>
+                    <span class="more-apps-subname">Instragram</span>
+                    <span class="more-apps-rating">4.5<span class="material-icons">star</span></span>
+                </div>
+            </div>
+
+            <div class="more-apps">
+                <img src="img/tiktok.png">
+                <div>
+                    <span class="more-apps-name">TikTok</span>
+                    <span class="more-apps-subname">TikTok</span>
+                    <span class="more-apps-rating">4.4<span class="material-icons">star</span></span>
+                </div>
+            </div>
+
+            <div class="more-apps">
+                <img src="img/facebook.png">
+                <div>
+                    <span class="more-apps-name">Facebook</span>
+                    <span class="more-apps-subname">Facebook</span>
+                    <span class="more-apps-rating">4.7<span class="material-icons">star</span></span>
+                </div>
+            </div>
+
+            <div class="more-apps">
+                <img src="img/duolingo.png">
+                <div>
+                    <span class="more-apps-name">Duolingo: Idiomas</span>
+                    <span class="more-apps-subname">Duolingo</span>
+                    <span class="more-apps-rating">4.8<span class="material-icons">star</span></span>
+                </div>
+            </div>
+
+            <div class="more-apps">
+                <img src="img/shopee.png">
+                <div>
+                    <span class="more-apps-name">Shopee: Compras</span>
+                    <span class="more-apps-subname">Shopee</span>
+                    <span class="more-apps-rating">4.9<span class="material-icons">star</span></span>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>

@@ -13,7 +13,7 @@
 
 <body>
     <!--CABEÇALHO-->
-    <header class="app-header">
+    <header>
         <!--Logo do app e nomes-->
         <div class="app-info">
 
@@ -30,7 +30,7 @@
             </div>
 
         </div>
-        <!--Detalhes iniciais, estreals nº de downloads, recomendações de idade-->
+        <!--Detalhes iniciais, nº de estrelas, nº de downloads, recomendações de idade-->
         <div class="app-rating">
             <div class="container-app-rating">
                 <div id="rating-1">
@@ -60,29 +60,6 @@
             <button>
                 Instalar Agora
             </button>
-            <button class="install">
-                Baixar
-            </button>
-            <script>
-                const installApp = document.querySelector('.install')
-
-                installApp.addEventListener('click', () => {
-                    installApp.innerHTML = `
-					<span>Baixando</span>
-					<div class="loading-container">
-                        <div class="loading-circle"></div>
-                        <div class="loading-progress-1"></div>
-                        <div class="loading-progress-2"></div>
-                        <div class="loading-progress-3"></div>
-                        <div class="loading-progress-4"></div>
-                        <div class="loading-progress-5"></div>
-					</div>
-                    `
-                    setTimeout(() => {
-                        installApp.style.display = 'none'
-                    }, 10000);
-                })
-            </script>
             <!--Adicionar a lista de desejos-->
             <div class="add-wishlist">
                 <span class="header_btnContentAddFavBtn_icon__80TSv" aria-hidden="true"><svg width="24" height="24"
@@ -90,14 +67,13 @@
                         <path
                             d="M7 3H17C18.1045 3 19 3.8955 19 5V21L12 18L5 21L5.01075 5C5.01075 3.8955 5.8965 3 7 3ZM12 15.824L17 18V5H7V18L12 15.824ZM13 7V9H15V11H13V13H11V11H9V9H11V7H13Z">
                         </path>
-                    </svg></span>
+                    </svg>
+                </span>
                 <span class="add-wishlist-text">Adicionar à lista de desejos</span>
             </div>
             <!--disponibilidade do app para dispositivos-->
             <div class="app-available">
-                <span class="material-symbols-outlined">
-                    devices
-                </span>
+                <span class="material-symbols-outlined">devices</span>
                 <span>Este app está disponível para todos os seus dispositivos</span>
             </div>
         </div>
@@ -105,12 +81,13 @@
     <!--CABEÇALHO-->
     <!--MAIN-->
     <main>
+        <!--SEÇÃO DE SLIDER QUE MOSTRA IMAGENS E VÍDEOS DO APP-->
         <section class="slider-app-images">
-
             <div class="slider-container">
-
+                <!--Aqui o JavScript irá colocar os screenshots e video disponíveis-->
             </div>
         </section>
+        <!-- JavaScript que irá iterar sobre um array de imagens e vídeos, verifica se é video/imagem e coloca dentro da div "slider-container"-->
         <script>
             const screnshotsContent = [
                 '/img/img-1.webp',
@@ -137,14 +114,28 @@
                 }
             })
         </script>
+        <!--MODAL QUE MOSTRA OS SCREENSHOTS E VIDEOS SOBRE O APP-->
+        <section class="display-modal" style="display: none;">
+            <div class="show-modal">
+                <button><span class="material-symbols-outlined">
+                        chevron_left
+                    </span></button>
+                <div class="view-modal">
+                    <iframe src="https://www.youtube.com/embed/eolqmrtdJHw" height="100%" width="100%"
+                        frameborder="0"></iframe>
+                </div>
+                <button><span class="material-symbols-outlined">
+                        chevron_right
+                    </span></button>
+            </div>
+        </section>
+        <!--SEÇÃO DE DESCRIÇÃO DO APP-->
         <section class="app-description">
 
             <div class="description-header">
                 <h2>Sobre o app</h2>
                 <button>
-                    <span class="material-symbols-outlined">
-                        arrow_right_alt
-                    </span>
+                    <span class="material-symbols-outlined">arrow_right_alt</span>
                 </button>
             </div>
 
@@ -163,6 +154,7 @@
             </div>
 
         </section>
+        <!--SEÇÃO DE SEGURANÇA DE DADOS-->
         <section class="securite-data">
 
             <div class="info-securite">
@@ -197,7 +189,9 @@
                 </div>
             </div>
         </section>
+        <!--SEÇÃO DE COMENTÁRIOS E AVALIAÇÕES-->
         <section class="app-reviews">
+            <!--Lugar onde mostra a quantidade de avaliações em estrelas, número de avaliações-->
             <div class="reviews-header">
                 <h2>Avaliações e Comentários</h2>
                 <div class="reviews-header-rating-downloads">
@@ -247,7 +241,9 @@
                 </div>
             </div>
         </section>
+        <!--SEÇÃO DOS COMENTÁRIOS-->
         <section class="coments">
+
             <div class="coment">
                 <div class="profile">
                     <img src="img/foto-perfil.jpg" alt="foto de perfil">
@@ -284,20 +280,7 @@
                 </div>
             </div>
         </section>
-        <section class="display-modal" style="display: none;">
-            <div class="show-modal">
-                <button><span class="material-symbols-outlined">
-                        chevron_left
-                    </span></button>
-                <div class="view-modal">
-                    <iframe src="https://www.youtube.com/embed/eolqmrtdJHw" height="100%" width="100%"
-                        frameborder="0"></iframe>
-                </div>
-                <button><span class="material-symbols-outlined">
-                        chevron_right
-                    </span></button>
-            </div>
-        </section>
+        <!--TELA DE CARREGAMENTO PARA IMPEDIR A VIZUALIÇÃO DO PÁGINA PLAYSTORE-FAKE QUANDO SE USA A PWA-->
         <section class="load-screen">
             <svg viewBox="25 25 50 50" id="crawling">
                 <circle r="20" cy="50" cx="50"></circle>
@@ -312,7 +295,9 @@
         </script>
     </main>
     <!--MAIN-->
+    <!--FOOTER-->
     <footer>
+        <!--Título que fala sobre mais app ⬇️-->
         <div class="info-securite">
             <h2>Mais apps</h2>
             <button>
@@ -321,6 +306,8 @@
                 </span>
             </button>
         </div>
+        <!--Título que fala sobre mais app ⬆️-->
+        <!--Container que exibe a lista de apps-->
         <div class="container-footer">
             <div class="more-apps">
                 <img src="img/whatsapp.png">
@@ -378,6 +365,7 @@
         </div>
 
     </footer>
+    <!--FOOTER-->
 </body>
 
 </html>

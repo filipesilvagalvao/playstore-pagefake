@@ -1,71 +1,45 @@
-const modal = document.querySelector('.display-modal')
-const imgModal = document.querySelector('.show-modal>img')
-const containerModal = document.querySelector('.show-modal')
-const buttons = document.querySelectorAll('.show-modal>button')
-const screenshots = document.querySelectorAll('.slider-item')
-
-function showModal(e) {
-    if (modal.style.display === 'none') {
-        modal.style.display = 'block'
-        imgModal.src = e.target.src
-    } else if (e.target === containerModal) {
-        modal.style.display = 'none'
-    }
-}
-
-
-screenshots.forEach((element) => {
-    element.addEventListener('click', (e) => showModal(e))
-})
-
-modal.addEventListener('click', (e) => {
-    showModal(e)
-})
-
-const prevBtn = document.querySelector('.show-modal button:first-child');
-const nextBtn = document.querySelector('.show-modal button:last-child');
+// Elementos do DOM
+const modal = document.querySelector('.display-modal');
 const modalView = document.querySelector('.view-modal');
 const sliderItems = Array.from(document.querySelectorAll('.slider-item'));
+const [prevBtn, nextBtn] = document.querySelectorAll('.show-modal button');
+const [headerRating, bodyRating] = [
+    document.querySelector('.header-rating'),
+    document.querySelector('.body-rating')
+];
+
+// Estado do modal
 let currentItemIndex = 0;
 
-// Atualiza o conteúdo do modal para o índice fornecido
-function updateModalContent(index) {
-    if (index < 0) index = sliderItems.length - 1;
-    if (index >= sliderItems.length) index = 0;
-    currentItemIndex = index;
-
-    // Limpa o conteúdo atual do modal
-    modalView.innerHTML = '';
-
-    // Clona o elemento filho (img ou iframe) do slider
-    const element = sliderItems[currentItemIndex].firstElementChild.cloneNode(true);
-    modalView.appendChild(element);
-}
-
-// Ao abrir o modal, define o índice do elemento clicado
-sliderItems.forEach((element, idx) => {
-    element.addEventListener('click', (e) => {
-        showModal(e);
-        currentItemIndex = idx;
+// Funções principais
+const showModal = (e) => {
+    if (e.target === modal || modal.style.display === 'block') {
+        modal.style.display = 'none';
+    } else {
+        modal.style.display = 'block';
+        currentItemIndex = sliderItems.indexOf(e.target.closest('.slider-item'));
         updateModalContent(currentItemIndex);
-    });
-});
+    }
+};
 
-// Botão anterior
+const updateModalContent = (index) => {
+    currentItemIndex = (index + sliderItems.length) % sliderItems.length;
+    modalView.innerHTML = '';
+    modalView.appendChild(sliderItems[currentItemIndex].firstElementChild.cloneNode(true));
+};
+
+// Event Listeners
+sliderItems.forEach(item => item.addEventListener('click', showModal));
+modal.addEventListener('click', showModal);
 prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     updateModalContent(currentItemIndex - 1);
 });
-
-// Botão próximo
 nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     updateModalContent(currentItemIndex + 1);
 });
 
-
-const headerRating = document.querySelector('.header-rating')
-const bodyRating = document.querySelector('.body-rating')
-
-document.querySelector('.classification-note').innerText = headerRating.textContent.replace('star', '')
-document.querySelector('.classification-text').innerText = bodyRating.textContent
+// Atualizações iniciais
+document.querySelector('.classification-note').textContent = headerRating.textContent.replace('star', '');
+document.querySelector('.classification-text').textContent = bodyRating.textContent;
